@@ -1,0 +1,39 @@
+ <div class="navbar navbar-inverse navbar-fixed-top navbar-ulink"  role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><img src="images/logouLinkv2.png"/></a>
+    </div>
+    <div class="navbar-collapse collapse header-nav">
+        <ul class="nav navbar-nav navbar-right">
+             <li id="ulist-link"><a class="module-nav ulist-module" href="#" {{action "navigateTo" "ulist"}}><i class="uicon-ulist"></i></a></li>
+             <li id="events-link"><a class="module-nav events-module" href="#" {{action "navigateTo" "events"}}><i class="uicon-calendar"></i></a></li>
+             <li id="snapshots-link"><a class="module-nav snapshots-module" href="#" {{action "navigateTo" "snapshots"}}><i class="uicon-camera"></i></a></li>
+            {{#if isLoggedIn}}
+                <li class="dropdown">
+                    <a class="btn account dropdown-toggle" data-toggle="dropdown" href="index.html#">
+                        <div class="avatar"><img {{bindAttr src="currentUser.thumbImageURL"}} alt="avatar" /></div>
+                        <div class="user">
+                            <span class="name">{{currentUser.username}}</span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-menu-title"></li>
+                        <li><a href="#" {{action "navigateTo" "users.me"}}><i class="uicon-user"></i> <span>Profile</span></a></li>
+                         <li><a href="#"><i class="uicon-settings"></i><span>Settings</span></a></li>
+                        <li><a href="#" {{action "logout"}}><i class="uicon-logout"></i> <span>Logout</span></a></li>
+                    </ul>
+                </li>
+            {{else}}
+                <li><a class="module-nav login" href="#" {{action "navigateTo" "login"}}><i class="uicon-login"></i> Login</a></li>
+            {{/if}}
+        </ul>
+    </div>
+</div>
+<div class="container content-container">
+    {{outlet}}
+</div>

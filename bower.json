@@ -1,0 +1,26 @@
+{
+  "name": "ulink-version-2",
+  "version": "2.0.0",
+  "homepage": "https://github.com/ulinkinc/ulink-version-2",
+  "authors": [
+    "Bennie Kingwood <bennie.kingwood@gmail.com>"
+  ],
+  "description": "Find out what is happening on your campus, right now.",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ], 
+  "directory": "dependencies", 
+  "dependencies": {
+    "jquery": "~2.0.0", 
+    "ember": "1.2.0",
+    "bootstrap": "~3.0.2", 
+    "modernizr": "latest", 
+    "bowser": "latest"
+  }
+}

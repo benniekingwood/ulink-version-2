@@ -1,0 +1,157 @@
+/* ==========================================================================
+   General Styles
+   ========================================================================== */
+html,
+body {
+   	background-color: #f2efec;
+}
+
+.content-container {
+	margin-top: 85px !important;
+}
+/* ==========================================================================
+   Module Sub Nav Styles
+   ========================================================================== */
+.ulink-subnav {
+  border: 0px solid transparent !important;
+  top: 50px !important;
+  min-height: 30px !important;
+  height: 30px !important;
+  z-index: 1029 !important;
+}
+
+.ulink-subnav .navbar-nav li.page-title {
+	text-transform: uppercase;
+	padding: 4px 15px;
+	font-weight: bold;
+	font-size: 16px;
+	color: #ffffff;
+}
+/* ==========================================================================
+   Events Styles
+   ========================================================================== */
+.navbar-events-subnav .navbar-nav li.page-title {
+	background-color: #d7904b;
+}
+.navbar-events-subnav {
+    background-color: #efa154 !important;
+}
+.navbar-events-subnav .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 5px 15px;
+    text-transform: uppercase;
+}
+.navbar-events-subnav .navbar-nav>li>a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 30px;
+}
+/* ==========================================================================
+   UList Styles
+   ========================================================================== */
+.navbar-ulist-subnav .navbar-nav li.page-title {
+	background-color: #38a154;
+}
+.navbar-ulist-subnav {
+    background-color: #3fb35e !important;
+}
+.navbar-ulist-subnav .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 5px 15px;
+    text-transform: uppercase;
+}
+.navbar-ulist-subnav .navbar-nav>li>a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 30px;
+}
+/* ==========================================================================
+   Snapshot Styles
+   ========================================================================== */
+.navbar-snapshots-subnav {
+    background-color: #7788d1 !important;
+}
+.navbar-snapshots-subnav .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 5px 15px;
+}
+.navbar-snapshots-subnav .navbar-nav li.page-title {
+	background-color: #6b7abc;
+}
+.navbar-snapshots-subnav .navbar-nav>li>a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 30px;
+}
+.photo-display-item {
+	margin-bottom: 5px;
+	overflow: hidden;
+	text-align: center;
+}
+.photo-display-item .hover-target {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.photo-display-item .thumb {
+	display: inline-block;
+	position: relative;
+}
+.photo-display-item .thumb {
+	line-height: 0;
+}
+
+.photo_container {
+	display: inline-block;
+	position: relative;
+	height: 250px;
+}
+.photo_container img {
+	-webkit-transition: opacity .25s ease-in-out;
+	-moz-transition: opacity .25s ease-in-out;
+	-o-transition: opacity .25s ease-in-out;
+	transition: opacity .25s ease-in-out;
+}
+
+.photo-display-item .hover-target:hover .meta {
+	background: rgba(0,0,0,0.6);
+}
+
+.photo-display-item .meta {
+	font-weight: 500;
+	height: 60px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 10px 5px 10px 5px;
+	background: rgba(0,0,0,0)
+	opacity: .80;
+	-ms-filter: "alpha(opacity=.8)";
+	color: #fff;
+	font-size: 11px;
+	line-height: 1.3;
+	margin-top: 5px;
+	text-align: left;
+	overflow: hidden;
+	-webkit-transition: all .25s ease-in-out;
+	-moz-transition: all .25s ease-in-out;
+	-o-transition: all .25s ease-in-out;
+	transition: all .25s ease-in-out;
+	text-shadow: 1px 1px 0 black;
+}
+.photo-display-item .hover-target:hover .meta .title {
+	opacity: 1;
+	-ms-filter: "alpha(opacity=1)";
+}
+.photo-display-item .meta .title {
+	opacity: 0;
+	-ms-filter: "alpha(opacity=0)";
+}
+.photo-display-item .meta .title { 
+	font-weight: 700;
+	width: 82%;
+}

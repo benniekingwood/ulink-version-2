@@ -1,0 +1,406 @@
+/* ==========================================================================
+   Font Icon Styles
+   ========================================================================== */
+@charset "UTF-8";
+
+@font-face {
+  font-family: "ulink";
+  src:url("../fonts/ulink.eot");
+  src:url("../fonts/ulink.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/ulink.woff") format("woff"),
+    url("../fonts/ulink.ttf") format("truetype"),
+    url("../fonts/ulink.svg#ulink") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "ulink" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="uicon-"]:before,
+[class*=" uicon-"]:before {
+  font-family: "ulink" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.uicon-lock:before {
+   content: "b"; 
+} 
+ 
+.uicon-user:before {
+   content: "a"; 
+} 
+ 
+.uicon-globe:before {
+   content: "c"; 
+} 
+ 
+.uicon-settings:before {
+   content: "d"; 
+} 
+ 
+.uicon-ulist:before {
+   content: "h"; 
+} 
+ 
+.uicon-reply:before {
+   content: "i"; 
+} 
+ 
+.uicon-options:before {
+   content: "e"; 
+} 
+ 
+.uicon-close:before {
+   content: "j"; 
+} 
+ 
+.uicon-camera:before {
+   content: "k"; 
+} 
+ 
+.uicon-clock:before {
+   content: "l"; 
+} 
+ 
+.uicon-location:before {
+   content: "m"; 
+} 
+ 
+.uicon-calendar:before {
+   content: "n"; 
+} 
+ 
+.uicon-menu:before {
+   content: "o"; 
+} 
+ 
+.uicon-check:before {
+   content: "p"; 
+} 
+ 
+.uicon-info:before {
+   content: "q"; 
+} 
+ 
+.uicon-warning:before {
+   content: "r"; 
+} 
+ 
+.uicon-ucampus:before {
+   content: "s"; 
+} 
+ 
+.uicon-marker-highlight:before {
+   content: "t"; 
+} 
+ 
+.uicon-marker-bold:before {
+   content: "u"; 
+} 
+ 
+.uicon-plus:before {
+   content: "g"; 
+} 
+ 
+.uicon-minus:before {
+   content: "f"; 
+} 
+ 
+.uicon-login:before {
+   content: "w"; 
+} 
+ 
+.uicon-logout:before {
+   content: "x"; 
+} 
+ 
+.uicon-caret-down:before {
+   content: "v"; 
+} 
+ 
+.uicon-arrows-right:before {
+   content: "y"; 
+} 
+ 
+.uicon-caret-up:before {
+   content: "z"; 
+} 
+ 
+.uicon-envelope:before {
+   content: "A"; 
+} 
+ 
+.uicon-twitter:before {
+   content: "B"; 
+} 
+ 
+.uicon-facebook:before {
+   content: "C"; 
+} 
+ 
+.uicon-keyboard:before {
+   content: "D"; 
+}
+.uicon-home:before {
+  content: "E";
+}
+/* ==========================================================================
+   Global Misc Styles
+   ========================================================================== */
+
+html,
+body {
+    -webkit-font-smoothing: antialiased;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.text-primary, .text-primary:hover { color: #378194;}
+
+/* ==========================================================================
+   Link Styles
+   ========================================================================== */
+a:hover {
+    transition: color 0.35s;
+    -moz-transition: color 0.35s; /* Firefox 4 */
+    -webkit-transition: color 0.35s; /* Safari and Chrome */
+    -o-transition: color 0.35s; /* Opera */
+    text-decoration: none;
+    color: #317485;
+}
+
+a {
+    color: #378194;
+}
+
+::selection {
+    background: #232527; /* Safari */
+    color: #FFFFFF;
+}
+::-moz-selection {
+    background: #232527; /* Firefox */
+    color: #FFFFFF;
+}
+
+.dropdown-backdrop {
+    position: static;
+}
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+.btn-primary {
+    color: #ffffff;
+    background-color: #378194;
+    border-color: #378194;
+}
+
+.btn-primary:hover {
+    color: #ffffff;
+    background-color: #317485;
+    border-color: #317485;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #ffffff;
+  background-color: #378194;
+  border-color: #378194;
+}
+
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #317485;
+  border-color: #317485;
+}
+
+.btn-grey {
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.btn-grey {
+    background: none repeat scroll 0 0 #878d8e;
+    border: medium none;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-shadow: none;
+    padding: 16px 30px;
+}
+
+.btn-grey:hover, .btn-grey:active {
+    background: #797e7f;
+    color: #FFFFFF;
+    transition: all 0.35s ease 0s;
+}
+/* ==========================================================================
+   General Form Styles
+   ========================================================================== */
+.form-control {
+	background-color: #d9d7d4;
+	background-image: none;
+	border: 0px solid #d9d7d4;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
+	box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
+}
+/* ==========================================================================
+   Login Form Styles
+   ========================================================================== */
+.login-error-alert {
+    display: none;
+}
+
+/* ==========================================================================
+   Navbar Styles
+   ========================================================================== */
+.header-nav .dropdown .dropdown-menu > li > a {
+		color: #ffffff;
+}
+.header-nav .dropdown .dropdown-menu > li > a span {
+	padding-left: 20px;
+}
+.header-nav .dropdown .dropdown-menu > li > a:hover,
+.header-nav .dropdown .dropdown-menu > li > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #125160;
+}
+.header-nav .dropdown .dropdown-menu {
+	min-width: 180px;
+	background-color: #378194 !important;
+	border-radius: 0px;
+}
+.navbar-ulink {
+    background-color: #378194 !important;
+    border: 0px solid transparent !important;
+}
+.navbar-header a img {
+	width: 60px;
+	height: 31px;
+}
+.navbar-brand {
+	padding: 9px 15px;
+}
+
+.navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
+    background-color: #125160;
+    color: #FFFFFF;
+}
+
+a.login {
+    color: #ffffff !important;
+		margin-right: 15px;
+}
+
+.navbar .nav > li > a {
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: none;
+    color: #ffffff;
+}
+
+.navbar .nav > li > a.module-nav {
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.navbar .nav > li > a.module-nav.snapshots-module {
+		background-color: #7788d1 !important;
+}
+.navbar .nav > li > a.module-nav.events-module {
+		background-color: #efa154 !important;
+}
+.navbar .nav > li > a.module-nav.ulist-module {
+		background-color: #3fb35e !important;
+}
+
+.navbar .nav > li > a:hover.module-nav.snapshots-module {
+		background-color: #6b7abc !important;
+}
+.navbar .nav > li > a:hover.module-nav.events-module {
+		background-color: #d7904b !important;
+}
+.navbar .nav > li > a:hover.module-nav.ulist-module {
+		background-color: #38a154 !important;
+}
+
+.navbar .nav > li > a:hover, .navbar .nav > li > a:focus {
+    background-color: #125160;
+}
+
+.header-nav a.btn.account {
+  border-radius: 0px !important;
+  padding-top: 13px;
+	margin-right: 15px;
+}
+.header-nav .avatar {
+  width: 45px;
+  float: left;
+}
+
+.header-nav .avatar img {
+  margin: -13px 10px -14px 0px;
+  height: 30px;
+  width: 30px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+}
+
+.header-nav .user .name {
+display: block;
+margin-top: -6px!important;
+font-size: 13px;
+}
+
+.header-nav .user {
+display: inline-block;
+text-align: left;
+margin-top: -5px;
+padding: 0;
+}
