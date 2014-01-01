@@ -10,19 +10,32 @@ App.Event = Ember.Object.extend({
   }.property("imageURL"),
   thumbImageURL: function() {
     return Config.image.urls.base + Config.image.urls.event.thumb + this.get("imageURL");
-  }.property("imageURL")
+  }.property("imageURL"), 
+	defaultImageURL: function() {
+    return Config.image.urls.base + Config.image.urls.defaults.event;
+  }.property("imageURL"), 
+	defaultFeaturedImageURL: function() {
+	  return Config.image.urls.base + Config.image.urls.defaults.featuredEvent;
+	}.property("imageURL"), 
+	eventDateFormatted: function() {
+ 			var eventDate = new Date(this.get('date'));
+ 			var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	    return months[eventDate.getMonth()] + ' ' + eventDate.getDate() + ', ' + eventDate.getFullYear();
+	}.property('date')
 });
 
 // override the find method for the Event model
 App.Event.reopenClass({
-  find: function(schoolId, callback) {
+  find: function(school, callback) {
     var events = [];
     var Event = Parse.Object.extend("Event");
     var query = new Parse.Query(Event);
     query.descending('createdAt');
-    if(schoolId !== undefined) {
-      query.equalTo("schoolId", schoolId);
+    if(school !== undefined) {
+      query.equalTo("school", school);
     } 
+		// include the user for the event
+		query.include("user");
     query.find({
         success: function(results) {  // does it go into here too late??? 
           // Convert parse models to Ember JS Models
@@ -35,8 +48,11 @@ App.Event.reopenClass({
             event.location = result.attributes.location;
             event.time = result.attributes.time;
             event.title = result.attributes.title;
-            event.imageURL = result.attributes.imageURL;
+						var imageURL = result.attributes.imageURL;
+            event.imageURL = (imageURL == undefined || imageURL == 'NULL') ? undefined : imageURL;
             event.createdAt = result.attributes.createdAt;
+						var user = result.get("user") || {};
+						event.user = App.User.create(user.attributes);
             events.pushObject(App.Event.create(event));
           } 
           return callback(events, null);

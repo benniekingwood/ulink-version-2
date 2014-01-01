@@ -176,6 +176,7 @@ body {
 }
 
 .text-primary, .text-primary:hover { color: #378194;}
+.label-primary { border-radius: 0px; background-color: #378194;}
 
 /* ==========================================================================
    Link Styles

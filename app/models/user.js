@@ -10,5 +10,8 @@ App.User = Ember.Object.extend({
 	}.property("imageURL"),
 	thumbImageURL: function() {
 		return Config.image.urls.base + Config.image.urls.user.thumb  + this.get("imageURL");
+	}.property("imageURL"),
+	defaultImageURL: function() {
+	  return Config.image.urls.base + Config.image.urls.defaults.user;
 	}.property("imageURL")
 });

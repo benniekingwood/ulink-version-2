@@ -1,9 +1,9 @@
 App.Router.map(function () {
-  this.resource('login');
+  this.route('login');
   this.resource('ulist');
+	this.resource('me');
   this.resource('users', function() {
     this.route('user', {path: ':user_id'});
-    this.route('me');
   });
   this.resource('events', {path: '/ucampus/events' }, function() {
     this.route('event', {path: '/ucampus/events/:event_id'});
@@ -23,8 +23,17 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 
-// UsersMe Route
-App.UsersMeRoute = Ember.Route.extend({
+// Login Route
+App.LoginRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (this.controllerFor('application').get('isLoggedIn')) {
+      this.transitionTo('events');
+    }
+  }
+});
+
+// Me Route
+App.MeRoute = Ember.Route.extend({
   beforeModel: function(transition) {
     if (!this.controllerFor('application').get('isLoggedIn')) {
       var loginController = this.controllerFor('login');
@@ -48,12 +57,12 @@ App.EventsRoute = Ember.Route.extend({
   },
   model: function() {
     var _this = this;
-    var schoolId = null;
-    var currentUser = Parse.User.current();
+    var school = null;
+    var currentUser = this.controllerFor('application').get('currentUser');
     if(currentUser) {
-      schoolId = currentUser.attributes.schoolId;
+      school = currentUser.school;
     } 
-		return App.Event.find(schoolId, function(results, error) {
+		return App.Event.find(school, function(results, error) {
         if (!error) { 
           _this.controllerFor('events').set('content', results);
         }
@@ -73,12 +82,12 @@ App.SnapshotsRoute = Ember.Route.extend({
   },
   model: function() {
     var _this = this;
-    var schoolId = null;
-    var currentUser = Parse.User.current();
+    var school = null;
+    var currentUser = this.controllerFor('application').get('currentUser');
     if(currentUser) {
-      schoolId = currentUser.attributes.schoolId;
+      school = currentUser.school;
     } 
-    return App.Snapshot.find(schoolId, function(results, error) {
+    return App.Snapshot.find(school, function(results, error) {
         if (!error) {
           _this.controllerFor('snapshots').set('content', results);
         }
