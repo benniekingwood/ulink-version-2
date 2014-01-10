@@ -1,18 +1,6 @@
-<ul id="sidebar-nav" class="nav nav-tabs nav-stacked col-md-4 col-sm-4">
-    <li class="active"><a href="#"> <i class="uicon-user"></i>Profile</a></li>
-    <li><a href="#"><i class="uicon-lock"></i>Password</a></li>
-    <li><a href="#"><i class="uicon-calendar"></i>Events</a></li>
-    <li><a href="#"><i class="uicon-camera"></i>Snaps</a></li>
-</ul>
-<div class="col-md-8 col-sm-8">
-	<a href="#">
-		{{#if imageURL}}
-	  	<img class="img-circle my-profile" {{bindAttr src="originalImageURL"}} alt="profile image"/>
-		{{else}}
-			<img class="img-circle my-profile" {{bindAttr src="defaultImageURL"}} alt="profile image"/>
-		{{/if}}
-	</a>
-	<div class="">
-		<h3 class="text-primary">{{username}}</h3>
-	</div>
+<div class="col-md-2 col-sm-2">
+	{{outlet sidenav}}
+</div>
+<div class="col-md-10 col-sm-10">
+	{{outlet}}
 </div>

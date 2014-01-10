@@ -8,7 +8,9 @@ body {
 
 .content-container {
 	margin-top: 85px !important;
+	padding-bottom: 30px;
 }
+#required-alert-danger { display: none;}
 /* ==========================================================================
    Module Sub Nav Styles
    ========================================================================== */
@@ -30,13 +32,85 @@ body {
 /* ==========================================================================
    Me "My Profile" Styles
    ========================================================================== */
-img.my-profile {
+#profile-alert-success, #profile-alert-danger { display: none;}
+
+.my-profile .avatar img {
+  height: 150px;
+  width: 150px;
 	border: 3px solid #ffffff;
-	width: 200px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
 }
+
+.my-profile-nav > li  {
+    cursor: pointer;
+		text-align:center;
+		color: #ffffff;
+		height: 80px;
+		margin: 0 10px !important;
+}
+
+li#profile-sidenav-link, li#password-sidenav-link {
+	font-size: 26px;
+	padding-top: 22px;
+}
+li#profile-sidenav-link  {
+  background-color: #378194;
+}
+li#profile-sidenav-link:hover,
+li#profile-sidenav-link:focus,
+li#profile-sidenav-link:active,
+li#profile-sidenav-link.active {
+  background-color: #125160;
+}
+li#password-sidenav-link  {
+	background-color: #c1c6c7;
+}
+li#password-sidenav-link:hover,
+li#password-sidenav-link:focus,
+li#password-sidenav-link:active,
+li#password-sidenav-link.active {
+  background-color: #878d8e;
+}
+li#events-sidenav-link, li#snaps-sidenav-link, li#listings-sidenav-link  {
+	font-size: 18px;
+	padding-top: 10px;
+}
+li#events-sidenav-link  {
+  background-color: #efa154;
+}
+li#events-sidenav-link:hover,
+li#events-sidenav-link:focus,
+li#events-sidenav-link:active,
+li#events-sidenav-link.active {
+  background-color: #d7904b;
+}
+li#snaps-sidenav-link   {
+  background-color: #7788d1;
+}
+li#snaps-sidenav-link:hover,
+li#snaps-sidenav-link:focus,
+li#snaps-sidenav-link:active,
+li#snaps-sidenav-link.active {
+  background-color: #6b7abc;
+}
+li#events-sidenav-link  span, li#snaps-sidenav-link  span {
+	font-weight: bold;
+	font-size: 26px;
+}
+
+/* ==========================================================================
+   Me "Change Password" Styles
+   ========================================================================== */
+#password-alert-success, #password-alert-danger { display: none;}
+
 /* ==========================================================================
    Events Styles
    ========================================================================== */
+.event-list-item {
+	padding-bottom: 20px;
+}
 .navbar-events-subnav .navbar-nav li.page-title {
 	background-color: #d7904b;
 }
@@ -100,8 +174,10 @@ img.my-profile {
 }
 .photo-display-item {
 	margin-bottom: 5px;
-	overflow: hidden;
+/*	overflow: hidden;*/
 	text-align: center;
+	line-height: 0;
+	width: auto;
 }
 .photo-display-item .hover-target {
 	display: inline-block;
@@ -119,13 +195,14 @@ img.my-profile {
 .photo_container {
 	display: inline-block;
 	position: relative;
-	height: 250px;
+/*	height: 250px;*/
 }
 .photo_container img {
 	-webkit-transition: opacity .25s ease-in-out;
 	-moz-transition: opacity .25s ease-in-out;
 	-o-transition: opacity .25s ease-in-out;
 	transition: opacity .25s ease-in-out;
+	width: 250px;
 }
 
 .photo-display-item .hover-target:hover .meta {
@@ -165,5 +242,4 @@ img.my-profile {
 }
 .photo-display-item .meta .title { 
 	font-weight: 700;
-	width: 82%;
 }

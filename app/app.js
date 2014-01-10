@@ -98,6 +98,8 @@ require('app/models/user');
  * programming to do. 
 */
 require('app/views/snapshot_thumbnail_view');
+require('app/views/event_list_item_view');
+require('app/views/alerts_view');
 
 /*
  * Controller layer.
@@ -112,6 +114,8 @@ require('app/controllers/login_controller');
 require('app/controllers/signup_controller');
 require('app/controllers/snapshots_controller');
 require('app/controllers/user_controller');
+require('app/controllers/profile_controller');
+
 /* 
  * States (i.e. Routes)
  * Handles serialization of the application's current state

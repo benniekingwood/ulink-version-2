@@ -26,18 +26,21 @@ App.Event = Ember.Object.extend({
 
 // override the find method for the Event model
 App.Event.reopenClass({
-  find: function(school, callback) {
+  find: function(school, user, callback) {
     var events = [];
     var Event = Parse.Object.extend("Event");
     var query = new Parse.Query(Event);
     query.descending('createdAt');
     if(school !== undefined) {
       query.equalTo("school", school);
+			// include the user for the event only when retrieving for the school
+			query.include("user");
     } 
-		// include the user for the event
-		query.include("user");
+    if(user !== undefined) {
+      query.equalTo("user", user);
+    } 
     query.find({
-        success: function(results) {  // does it go into here too late??? 
+        success: function(results) {  
           // Convert parse models to Ember JS Models
           for (var i = 0; i < results.length; i++) { 
             var result = results[i];

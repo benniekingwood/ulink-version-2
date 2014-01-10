@@ -177,6 +177,11 @@ body {
 
 .text-primary, .text-primary:hover { color: #378194;}
 .label-primary { border-radius: 0px; background-color: #378194;}
+.alert { border-color: transparent;}
+.alert > i {
+	font-size: 30px;
+	padding: 10px;
+}
 
 /* ==========================================================================
    Link Styles
@@ -286,6 +291,11 @@ fieldset[disabled] .btn-primary.active {
 	border-radius: 4px;
 	-webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
 	box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+	cursor: not-allowed;
+	background-color: #c3c1be;
 }
 /* ==========================================================================
    Login Form Styles
