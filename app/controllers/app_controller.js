@@ -1,7 +1,7 @@
 App.ApplicationController = Ember.Controller.extend({
 	currentUser: {},
 	isLoggedIn: false,
-	init: function() {
+	init: function() { 
 			// first check for the logged in user
 			var hasCurrrentUser = (Parse.User.current() != null);
       this.set('isLoggedIn', hasCurrrentUser);
@@ -15,8 +15,13 @@ App.ApplicationController = Ember.Controller.extend({
 		},
 		setCurrentUser: function(user) {
 			if(user && user.attributes) {
+				// TODO: SET SCHOOL 
+				// var school = user.get("school") || {};
 				this.set('currentUser', App.User.create(user.attributes));
 				this.set('isLoggedIn', true);
+				// now set the user's events, snapshots
+				this.send('getCurrentUserEvents', user);
+				this.send('getCurrentUserSnaps', user);
 			}
 		},
 	 	navigateTo: function(route) {
@@ -27,6 +32,30 @@ App.ApplicationController = Ember.Controller.extend({
 		logout: function() {
 			Parse.User.logOut();
 			window.location = "/";
+		}, 
+		// This function will retreive the events for the user
+		getCurrentUserEvents: function(user) {
+			var _self = this;
+			App.Event.find(undefined, user, function(results, error) {
+	        if (!error) { 
+						if(results && results.length > 0) {
+							_self.get('currentUser').set('events', results);
+						}
+	        }
+	      }
+			);
+		}, 
+		// This function will retreive the snapshots for the user
+		getCurrentUserSnaps: function(user) {
+			var _self = this;
+			App.Snapshot.find(undefined, user, function(results, error) {
+	        if (!error) { 
+						if(results && results.length > 0) {
+							_self.get('currentUser').set('snaps', results);
+						}
+	        }
+	      }
+			);
 		}
 	}
 });

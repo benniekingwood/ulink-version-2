@@ -15,16 +15,19 @@ App.Snapshot = Ember.Object.extend({
 
 // override the find method for the Snapshot model
 App.Snapshot.reopenClass({
-  find: function(school, callback) {
+  find: function(school, user, callback) {
     var snapshots = [];
     var Snapshot = Parse.Object.extend("Snapshot");
     var query = new Parse.Query(Snapshot);
     query.descending('createdAt');
     if(school !== undefined) {
       query.equalTo("school", school);
+			// include the user for the snapshot
+			query.include("user");
     } 
-		// include the user for the snapshot
-		query.include("user");
+    if(user !== undefined) {
+      query.equalTo("user", user);
+    } 
     query.find({
         success: function(results) {         
           // Convert parse models to Ember JS Models

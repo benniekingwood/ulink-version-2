@@ -1,7 +1,14 @@
 App.Router.map(function () {
   this.route('login');
   this.resource('ulist');
-	this.resource('me');
+	this.resource('me', function() {
+		this.route('profile');
+		this.route('password');
+		this.route('events');
+		this.route('snaps');
+		this.route('listings');
+		this.route('sidenav');
+	});
   this.resource('users', function() {
     this.route('user', {path: ':user_id'});
   });
@@ -43,6 +50,104 @@ App.MeRoute = Ember.Route.extend({
   },
   model: function() {
     return this.controllerFor('application').get('currentUser');
+  }, 
+	renderTemplate: function() {
+		this.render('me',{ controller: this.controllerFor('profile') });
+	  this.render('me/profile', {
+      into: 'me',
+			controller: this.controllerFor('profile')
+	  });
+	  this.render('me/sidenav', {
+      outlet: 'sidenav',
+      into: 'me',
+			controller: this.controllerFor('profile')
+	  });
+	}, 
+	setupController: function(controller, model) {
+	    this.controllerFor('profile').set('model', model);
+	},
+	actions: {
+		deactivateSidNavLinks: function() {
+			$("li[id$='-sidenav-link']").removeClass("active");
+		},
+    goTo: function(route) {
+	 		this.send('deactivateSidNavLinks');
+	 		$("#" + route + "-sidenav-link").addClass("active");
+		  this.render('me/'+route, {
+	      into: 'me',
+				controller: this.controllerFor("profile")
+		  });
+    }
+	}
+});
+
+// Me Sidenav Route
+App.MeSidenavRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (!this.controllerFor('application').get('isLoggedIn')) {
+      var loginController = this.controllerFor('login');
+      loginController.set('previousTransition', transition);
+      this.transitionTo('login');
+    }
+  },
+  model: function() {
+		return this.modelFor('me');
+  }
+});
+
+// Me Profile Route
+App.MeProfileRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (!this.controllerFor('application').get('isLoggedIn')) {
+      var loginController = this.controllerFor('login');
+      loginController.set('previousTransition', transition);
+      this.transitionTo('login');
+    }
+  },
+  model: function() {
+ 		return this.modelFor('me');
+  }
+});
+
+// Me Events Route
+App.MeEventsRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (!this.controllerFor('application').get('isLoggedIn')) {
+      var loginController = this.controllerFor('login');
+      loginController.set('previousTransition', transition);
+      this.transitionTo('login');
+    }
+  },
+  model: function() {
+		return this.modelFor('me');
+  }
+});
+
+// Me Snaps Route
+App.MeSnapsRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (!this.controllerFor('application').get('isLoggedIn')) {
+      var loginController = this.controllerFor('login');
+      loginController.set('previousTransition', transition);
+      this.transitionTo('login');
+    }
+  },
+  model: function() {
+		return this.modelFor('me');
+  }
+});
+
+// Me Listings Route
+App.MeListingsRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (!this.controllerFor('application').get('isLoggedIn')) {
+      var loginController = this.controllerFor('login');
+      loginController.set('previousTransition', transition);
+      this.transitionTo('login');
+    }
+  },
+  model: function() {
+		return this.modelFor('me');
   }
 });
 
@@ -62,7 +167,7 @@ App.EventsRoute = Ember.Route.extend({
     if(currentUser) {
       school = currentUser.school;
     } 
-		return App.Event.find(school, function(results, error) {
+		return App.Event.find(school, undefined, function(results, error) {
         if (!error) { 
           _this.controllerFor('events').set('content', results);
         }
@@ -87,7 +192,7 @@ App.SnapshotsRoute = Ember.Route.extend({
     if(currentUser) {
       school = currentUser.school;
     } 
-    return App.Snapshot.find(school, function(results, error) {
+    return App.Snapshot.find(school, undefined, function(results, error) {
         if (!error) {
           _this.controllerFor('snapshots').set('content', results);
         }
