@@ -1,4 +1,9 @@
 /* ==========================================================================
+   Style Imports
+   ========================================================================== */
+@import url('ulink.css');
+
+/* ==========================================================================
    General Styles
    ========================================================================== */
 html,
@@ -16,6 +21,7 @@ body {
    ========================================================================== */
 #required-alert-danger,#profile-alert-success, #profile-alert-danger,
 #password-alert-success, #password-alert-danger ,#reset-alert-success, #reset-alert-danger { display: none;}
+
 /* ==========================================================================
    Module Sub Nav Styles
    ========================================================================== */
@@ -129,7 +135,7 @@ li#events-sidenav-link  span, li#snaps-sidenav-link  span {
 .event-image {
 	width: 120px;
 }
-.event-user-image { width: 40px;}
+.event-user-image { width: 40px; height: 40px;}
 .event-date {font-size: 14px;}
 /* ==========================================================================
    UList Styles
