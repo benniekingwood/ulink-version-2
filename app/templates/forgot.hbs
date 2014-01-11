@@ -1,0 +1,24 @@
+<div class="col-md-2 col-sm-2"></div>
+<div class="col-md-8 col-sm-8">
+{{view App.AlertsView}}
+<div>
+  <h4 class="text-primary"><i class="uicon-info"></i> Forgot your password? Don't worry, we're here to help.    <br />Follow the steps below and you will receive a temporary password by email.
+  </h4>
+  <blockquote>
+    <p class="text-muted"><em>Enter the email address registered to your uLink account.</em></p>
+  </blockquote>
+	<form role="form">
+	   <div id="email-group" class="form-group">
+	     <label for="email" class="control-label text-primary">Email</label>
+	     {{input type="email" value=email classNames="form-control input-lg" placeholder="Email Address"}}
+	   </div>
+	  <button {{bindAttr class=":btn :btn-lg :btn-primary :btn-block resetting:disabled"}} type="submit" {{action "reset"}}>
+	  {{#if resetting}}
+	  	Please Wait
+	  {{else}}
+			Send Me Instructions
+	  {{/if}}
+	  </button>
+	</form>
+</div>
+<div class="col-md-2 col-sm-2"></div>

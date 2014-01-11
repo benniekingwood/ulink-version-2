@@ -111,6 +111,7 @@ require('app/views/alerts_view');
 require('app/controllers/app_controller');
 require('app/controllers/events_controller');
 require('app/controllers/login_controller');
+require('app/controllers/forgot_controller');
 require('app/controllers/signup_controller');
 require('app/controllers/snapshots_controller');
 require('app/controllers/user_controller');
