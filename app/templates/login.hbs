@@ -19,7 +19,7 @@
           {{view Ember.TextField  type="password" valueBinding="password" classNames="form-control input-lg" placeholder="Password"}}
         </div>
         <div class="text-center">
-          <a href="#">Forgot Password?</a>
+          {{#link-to "forgot"}}Forgot Password?{{/link-to}}
         </div>
       </div>
       <div class="modal-footer">
