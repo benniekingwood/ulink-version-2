@@ -11,17 +11,17 @@
  * These are the dependencies for an Ember application
  * and they have to be loaded before any application code.
 */
-require('dependencies/jquery/jquery');
+require('dependencies/js/jquery/jquery.min');
 
 /*
  * Since we're precompiling our templates, we only need the
  * handlebars-runtime microlib instead of the
  * entire handlebars library and its string parsing functions.
 */
-require('dependencies/handlebars/handlebars-runtime');
+require('dependencies/js/handlebars/handlebars.runtime.min');
 
 /* This is Ember framework*/
-require('dependencies/ember/ember');
+require('dependencies/js/ember/ember.prod');
 
 /*
   this file is generated as part of the build process.
@@ -33,27 +33,27 @@ require('dependencies/ember/ember');
 require('dependencies/compiled/templates');
 
 // This file is for bootstrap 
-require('dependencies/bootstrap/bootstrap');
+require('dependencies/js/bootstrap/bootstrap.min');
 
 // This file is for the browser version verifications
-require('dependencies/bowser/bowser');
+require('dependencies/js/bowser/bowser.min');
 
 // This file is for the parse library
-require('dependencies/parse-1.2.13');
+require('dependencies/parse');
 
 
 /*
  if the browser fails of the following conditions,
  forward to the browser download page:
  1. Opera browser
- 2. Chrome < 11
- 3. Firefox < 6
- 4. IE < 9
+ 2. Chrome < 20
+ 3. Firefox < 20
+ 4. IE browser
 */
-if ((bowser.msie && bowser.version < 9)||
-    (bowser.opera)||
-    (bowser.mozilla && bowser.version < 6)||
-    (bowser.chrome && bowser.version < 11)) {
+if ((bowser.msie) ||
+    (bowser.opera) ||
+    (bowser.mozilla && bowser.version < 20) ||
+    (bowser.chrome && bowser.version < 20)) {
     window.location = '/browser.html';
 }
 // make sure console is available

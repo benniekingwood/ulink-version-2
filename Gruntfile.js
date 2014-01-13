@@ -15,7 +15,7 @@ module.exports = function(grunt) {
             targetDir: "./dependencies",
             layout: 'byType',
             install: true,
-            verbose: true,
+						cleanTargetDir: false,
             cleanBowerDir: true,
             bowerOptions: {}
          }
@@ -27,11 +27,28 @@ module.exports = function(grunt) {
     copy: {
       build: {
         files: {
-          'build/css/bootstrap.css': 'dependencies/bootstrap/bootstrap.css',
-          'build/js/modernizr.js': 'dependencies/modernizr/modernizr.js'
+          'build/css/bootstrap.css': 'dependencies/css/bootstrap/bootstrap.min.css',
+          'build/js/modernizr.js': 'dependencies/js/modernizr/modernizr-1.7.min.js'
         }
       }
     },
+		/* Since Handlebars runtime does not attach the Handlebars object to window, 
+		  we must do it here with a string replacement.  Ember requires the module to 
+			be attached to the window.
+		*/
+		'string-replace': {
+		  dist: {
+		    files: {
+		      'dependencies/js/handlebars/handlebars.runtime.min.js': 'dependencies/js/handlebars/handlebars.runtime.min.js'
+		    },
+		    options: {
+		      replacements: [{
+		        pattern: 'var Handlebars=',
+		        replacement: 'var Handlebars=window.Handlebars='
+		      }]
+		    }
+		  }
+		},
     /* 
        A simple ordered concatenation strategy.
        This will start at app/app.js and begin
@@ -71,7 +88,7 @@ module.exports = function(grunt) {
       },
       handlebars_templates: {
         files: ['app/**/*.hbs', 'app/**/**/*.hbs'],
-        tasks: ['ember_templates', 'neuter']
+        tasks: ['emberTemplates', 'neuter']
       }
     },
 
@@ -110,7 +127,7 @@ module.exports = function(grunt) {
       The compiled result will be stored in
       Ember.TEMPLATES keyed on their file path (with the 'app/templates' stripped)
     */
-    ember_templates: {
+    emberTemplates: {
       options: {
         templateName: function(sourceFile) {
           return sourceFile.replace(/app\/templates\//, '');
@@ -138,6 +155,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-ember-templates');
   grunt.loadNpmTasks('grunt-bower-task');
+	grunt.loadNpmTasks('grunt-string-replace');
   
   /*
     A task to build the test runner html file that get place in
@@ -166,11 +184,11 @@ module.exports = function(grunt) {
       - build an html file with a script tag for each test file
       - headlessy load this page and print the test runner results
   */
-  grunt.registerTask('test', ['ember_templates', 'neuter', 'jshint', 'build_test_runner_file', 'qunit']);
+  grunt.registerTask('test', ['emberTemplates', 'string-replace', 'neuter', 'jshint', 'build_test_runner_file', 'qunit']);
 
   /*
     Default task. Compiles templates, retrieves bower packages, performs any copying, neuters application code, and begins
     watching for changes.  Order matters here.
   */
-  grunt.registerTask('default', ['ember_templates', 'bower', 'copy', 'neuter', 'watch']);
+  grunt.registerTask('default', ['emberTemplates', 'bower', 'copy', 'string-replace', 'neuter', 'watch']);
 };
