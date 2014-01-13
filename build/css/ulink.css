@@ -297,12 +297,6 @@ fieldset[disabled] .btn-primary.active {
 	cursor: not-allowed;
 	background-color: #c3c1be;
 }
-/* ==========================================================================
-   Login Form Styles
-   ========================================================================== */
-.login-error-alert {
-    display: none;
-}
 
 /* ==========================================================================
    Navbar Styles

@@ -10,7 +10,10 @@ App.School = Ember.Object.extend({
   }.property("imageURL"),
   thumbImageURL: function() {
     return Config.image.urls.base + Config.image.urls.school.thumb + this.get("imageURL");
-  }.property("imageURL")
+  }.property("imageURL"), 
+	isValidDomain: function(domain) {
+		console.log("isValidDomain");
+	}.property("domains")
 });
 
 // override the find method for the School model
@@ -33,7 +36,6 @@ App.School.reopenClass({
             school.name = result.attributes.name;
             school.shortName = result.attributes.shortName;
             school.domains = result.attributes.domains;
-            school.description = result.attributes.description;
             school.imageURL = result.attributes.imageURL;
             school.attendance = result.attributes.attendance;
             school.address = result.attributes.address;

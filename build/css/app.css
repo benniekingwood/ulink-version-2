@@ -20,7 +20,8 @@ body {
    Alert Styles
    ========================================================================== */
 #required-alert-danger,#profile-alert-success, #profile-alert-danger,
-#password-alert-success, #password-alert-danger ,#reset-alert-success, #reset-alert-danger { display: none;}
+#password-alert-success, #password-alert-danger ,#reset-alert-success, 
+#reset-alert-danger, #signup-alert-success, #signup-alert-danger, #login-alert-danger { display: none;}
 
 /* ==========================================================================
    Module Sub Nav Styles
