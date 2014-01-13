@@ -2,9 +2,9 @@
 	<span class="label label-primary pull-right event-date">{{eventDateFormatted}}</span>
   <a class="pull-left" href="#" data-toggle="tooltip" title="first tooltip">
 		{{#if imageURL}}
-    	<img class="media-object event-image" {{bindAttr src="mediumImageURL"}} alt="event image"/>
+    	<img class="media-object event-image" {{bind-attr src="mediumImageURL"}} alt="event image"/>
 		{{else}}
-			<img class="media-object event-image" {{bindAttr src="defaultImageURL"}} alt="event image"/>
+			<img class="media-object event-image" {{bind-attr src="defaultImageURL"}} alt="event image"/>
 		{{/if}}
   </a>
   <div class="media-body">
@@ -12,7 +12,7 @@
 		<h5>by 
 			<a href="#">
 				{{#if user.imageURL}}
-					<img {{bindAttr src="user.thumbImageURL"}} class="img-circle event-user-image"/>
+					<img {{bind-attr src="user.thumbImageURL"}} class="img-circle event-user-image"/>
 				{{else}}
 					{{user.username}}
 				{{/if}}

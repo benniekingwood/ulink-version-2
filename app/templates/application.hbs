@@ -16,7 +16,13 @@
             {{#if isLoggedIn}}
                 <li class="dropdown">
                     <a class="btn account dropdown-toggle" data-toggle="dropdown" href="index.html#">
-                        <div class="avatar"><img {{bindAttr src="currentUser.thumbImageURL"}} alt="avatar" /></div>
+                        <div class="avatar">
+													{{#if currentUser.imageURL}}
+														<img {{bind-attr src="currentUser.thumbImageURL"}} alt="avatar" />
+													{{else}}
+														<img {{bind-attr src="currentUser.defaultImageURL"}} alt="avatar" />
+													{{/if}}
+												</div>
                         <div class="user">
                             <span class="name">{{currentUser.username}}</span>
                         </div>
