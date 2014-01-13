@@ -1,6 +1,7 @@
 App.Router.map(function () {
   this.route('login');
 	this.route('forgot');
+	this.route('signup');
   this.resource('ulist');
 	this.resource('me', function() {
 		this.route('profile');
@@ -39,9 +40,6 @@ App.LoginRoute = Ember.Route.extend({
     }
   }
 });
-
-// Forgot (Reset Password) Route
-App.ForgotRoute = Ember.Route.extend();
 
 // Me Route
 App.MeRoute = Ember.Route.extend({

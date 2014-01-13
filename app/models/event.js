@@ -30,7 +30,7 @@ App.Event.reopenClass({
     var events = [];
     var Event = Parse.Object.extend("Event");
     var query = new Parse.Query(Event);
-    query.descending('createdAt');
+    query.descending('date');
     if(school !== undefined) {
       query.equalTo("school", school);
 			// include the user for the event only when retrieving for the school

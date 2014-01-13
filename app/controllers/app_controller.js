@@ -1,13 +1,17 @@
 App.ApplicationController = Ember.Controller.extend({
 	currentUser: {},
 	isLoggedIn: false,
+	schools: [],
 	init: function() { 
-			// first check for the logged in user
-			var hasCurrrentUser = (Parse.User.current() != null);
-      this.set('isLoggedIn', hasCurrrentUser);
-      if(hasCurrrentUser) { 
-      	this.send('setCurrentUser', Parse.User.current());
-      }
+		this._super();
+		// first check for the logged in user
+		var hasCurrrentUser = (Parse.User.current() != null);
+    this.set('isLoggedIn', hasCurrrentUser);
+    if(hasCurrrentUser) { 
+    	this.send('setCurrentUser', Parse.User.current());
+    }
+		// retreive any necessary init data
+		this.send("getSchools");
   },
 	actions: {
 		deactivateNavLinks: function() {
@@ -56,6 +60,18 @@ App.ApplicationController = Ember.Controller.extend({
 	        }
 	      }
 			);
+		}, 
+		// retrieve all schools 
+		getSchools: function() {
+			var _self = this;
+			App.School.find(undefined, function(results, error) {
+	        if (!error) { 
+						if(results && results.length > 0) {
+							_self.set('schools', results);
+						}
+	        }
+	      }
+			);
 		}
-	}
+	} 
 });
