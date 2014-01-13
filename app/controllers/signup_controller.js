@@ -9,9 +9,18 @@ App.SignupController = Ember.Controller.extend({
   selectedStatus: null,
 	selectedSchool: null,
   init: function() {
+		_self = this;
 		this._super();
     var schools = this.get('controllers.application').get('schools');
-    this.set('schools', schools);
+		
+		// if there are no schools (page refresh), then wait for the schools to load
+		// from the app controller then grab them again
+		if(schools.length == 0) { 
+				setTimeout(function() {
+					var schools = _self.get('controllers.application').get('schools');
+					_self.set('schools', schools);
+				},3000);
+		} else {this.set('schools', schools);}
   },
   actions: {  
 		showRequiredAlert: function() {
@@ -67,6 +76,8 @@ App.SignupController = Ember.Controller.extend({
 
 			if(valid) {
 				this.send('signupNewUser');
+			} else {
+				window.scrollTo(0, 0);
 			}
 		},
     signupNewUser: function() { 
@@ -86,7 +97,11 @@ App.SignupController = Ember.Controller.extend({
 			parseSchool.set("objectId", this.get("selectedSchool").get("id"));
 			user.set("school", parseSchool);
 			user.set("schoolStatus", this.get('selectedStatus'));
-			user.set("ACL",new Parse.ACL());
+			
+			// build the ACL for the user
+			var acl = new Parse.ACL();
+			acl.setPublicReadAccess(true);
+			user.set("ACL",acl);
 
       user.signUp(null, {
         success: function(user) {

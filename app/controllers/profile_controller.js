@@ -13,6 +13,7 @@ App.ProfileController = Ember.ObjectController.extend({
 				if(this.get("password") === undefined || "" == this.get("password").trim()) {
 					$('#password-group').addClass('has-error');
 					this.send('showRequiredAlert');
+					window.scrollTo(0, 0);
 				} else {
 					$('#password-group').removeClass('has-error');
 					this.send('updateProfile', type);
@@ -21,6 +22,7 @@ App.ProfileController = Ember.ObjectController.extend({
 				if(this.get("name") === undefined || "" == this.get("name").trim()) {
 					$('#name-group').addClass('has-error');
 					this.send('showRequiredAlert');
+					window.scrollTo(0, 0);
 				} else {
 					$('#name-group').removeClass('has-error');
 					this.send('updateProfile', type);
