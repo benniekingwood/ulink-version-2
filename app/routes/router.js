@@ -14,11 +14,13 @@ App.Router.map(function () {
   this.resource('users', function() {
     this.route('user', {path: ':user_id'});
   });
-  this.resource('events', {path: '/ucampus/events' }, function() {
-    this.route('event', {path: '/ucampus/events/:event_id'});
+  this.resource('events', function() {
+		this.route('new');
+    this.route('event', {path: ':event_id'});
   });
-  this.resource('snapshots', {path: '/ucampus/snapshots'}, function() {
-    this.route('snapshot', {path: '/ucampus/snapshots/:snapshot_id'});
+  this.resource('snapshots', function() {
+		this.route('new');
+    this.route('snapshot', {path: ':snapshot_id'});
   });
 });
 
@@ -178,6 +180,34 @@ App.EventsRoute = Ember.Route.extend({
 	}
 });
 
+// Events Index Route
+App.EventsIndexRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (!this.controllerFor('application').get('isLoggedIn')) {
+      var loginController = this.controllerFor('login');
+      loginController.set('previousTransition', transition);
+      this.transitionTo('login');
+    }
+  },
+  model: function() {
+		return this.modelFor('events');
+  }, 
+	renderTemplate: function() {
+		this.render('events/index',{ controller: this.controllerFor('events') });
+	}
+});
+
+// Events New Route
+App.EventsNewRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (!this.controllerFor('application').get('isLoggedIn')) {
+      var loginController = this.controllerFor('login');
+      loginController.set('previousTransition', transition);
+      this.transitionTo('login');
+    }
+  }
+});
+
 // Snapshots Route
 App.SnapshotsRoute = Ember.Route.extend({
   beforeModel: function(transition) {
@@ -200,6 +230,34 @@ App.SnapshotsRoute = Ember.Route.extend({
         }
       }
     );
+  }
+});
+
+// Snapshots Index Route
+App.SnapshotsIndexRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (!this.controllerFor('application').get('isLoggedIn')) {
+      var loginController = this.controllerFor('login');
+      loginController.set('previousTransition', transition);
+      this.transitionTo('login');
+    }
+  },
+  model: function() {
+		return this.modelFor('snapshots');
+  }, 
+	renderTemplate: function() {
+		this.render('snapshots/index',{ controller: this.controllerFor('snapshots') });
+	}
+});
+
+// Snapshots New Route
+App.SnapshotsNewRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (!this.controllerFor('application').get('isLoggedIn')) {
+      var loginController = this.controllerFor('login');
+      loginController.set('previousTransition', transition);
+      this.transitionTo('login');
+    }
   }
 });
 

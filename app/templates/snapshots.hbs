@@ -1,11 +1,7 @@
 <nav class="navbar navbar-inverse ulink-subnav navbar-snapshots-subnav navbar-fixed-top">
 	<ul class="nav navbar-nav">
-  	<li class="page-title">Snapshots</li>
-		<li><a href="#"><i class="uicon-plus"></i> Snapshot</a></li>
+		{{#link-to 'snapshots' tagName="li" classNames="page-title"}}Snapshots{{/link-to}}
+		<li>{{#link-to 'snapshots.new'}}<i class="uicon-plus"></i> Snapshot{{/link-to}}</li>
 	</ul>
 </nav>
-<div class="row">
-	{{#each}}
-		{{view App.SnapshotThumbnailView contentBinding="this"}}
-	{{/each}}
-</div>
+{{outlet}}

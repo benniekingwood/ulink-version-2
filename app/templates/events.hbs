@@ -1,9 +1,7 @@
 <nav class="navbar navbar-inverse ulink-subnav navbar-events-subnav navbar-fixed-top">
 	<ul class="nav navbar-nav">
-  	<li class="page-title">Events</li>
-		<li><a href="#"><i class="uicon-plus"></i> Event</a></li>
+  	{{#link-to 'events' tagName="li" classNames="page-title"}}Events{{/link-to}}
+		<li>{{#link-to 'events.new'}}<i class="uicon-plus"></i> Event{{/link-to}}</li>
 	</ul>
 </nav>
-{{#each}}
-	{{view App.EventListItemView contentBinding="this"}}
-{{/each}}
+{{outlet}}

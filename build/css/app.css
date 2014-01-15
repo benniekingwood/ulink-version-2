@@ -41,6 +41,13 @@ body {
 	font-size: 16px;
 	color: #ffffff;
 }
+.ulink-subnav .navbar-nav li:hover {
+	cursor: pointer;
+}
+.ulink-subnav .navbar-nav li > a:hover {
+	opacity: 0.7;
+	background-color: rgba(0,0,0,0);
+}
 /* ==========================================================================
    Me "My Profile" Styles
    ========================================================================== */
