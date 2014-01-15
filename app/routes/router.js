@@ -205,7 +205,10 @@ App.EventsNewRoute = Ember.Route.extend({
       loginController.set('previousTransition', transition);
       this.transitionTo('login');
     }
-  }
+  },
+	renderTemplate: function() {
+		this.render('events/new',{ controller: this.controllerFor('events') });
+	}
 });
 
 // Snapshots Route
@@ -258,7 +261,10 @@ App.SnapshotsNewRoute = Ember.Route.extend({
       loginController.set('previousTransition', transition);
       this.transitionTo('login');
     }
-  }
+  },
+	renderTemplate: function() {
+		this.render('snapshots/new',{ controller: this.controllerFor('snapshots') });
+	}
 });
 
 // Snapshot Route [doesn't require authentication]

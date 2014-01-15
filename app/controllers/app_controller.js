@@ -19,7 +19,7 @@ App.ApplicationController = Ember.Controller.extend({
 		},
 		setCurrentUser: function(user) {
 			if(user && user.attributes) {
-				// TODO: SET SCHOOL 
+				// TODO: SET SCHOOL , call fetch
 				// var school = user.get("school") || {};
 				this.set('currentUser', App.User.create(user.attributes));
 				this.set('isLoggedIn', true);

@@ -89,7 +89,6 @@ App.SignupController = Ember.Controller.extend({
 			user.set("email", this.get("email").trim());
  
 			// other fields for the user object
-			// Simple syntax to create a new subclass of Parse.Object.
 			var School = Parse.Object.extend("School");
  
 			// Create a new instance of that class.

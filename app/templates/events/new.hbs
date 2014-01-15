@@ -1,0 +1,41 @@
+<div class="col-md-2 col-sm-2"></div><!-- spacer -->
+<div class="col-md-8 col-sm-8">
+    <h4 class="text-primary">Create an Event</h4>
+    {{view App.AlertsView}}  
+		<form name="event-form" id="event-form">
+      <input name="rememberMe" type="hidden" value="false" /> 
+      <div class="modal-body">
+        <div id="title-group" class="form-group">
+          <label for="title" class="control-label text-primary">Title</label>
+          {{view Ember.TextField valueBinding="title" classNames="form-control input-lg" placeholder="Title"}}
+        </div>
+			  <div id="description-group" class="form-group">
+			    <label for="description" class="control-label text-primary">Description</label>
+			    {{textarea value=description cols="80" rows="10" classNames="form-control input-lg" maxlength="750"}}
+					<p class="help-block">Describe your event in <b>750</b> characters or less.</p>
+			  </div>
+				<div class="form-group input-group">
+					<span class="input-group-addon"><i class="uicon-location text-primary"></i></span>
+				  {{view Ember.TextField valueBinding="location" classNames="form-control input-lg" placeholder="Location"}}
+				</div>
+				<div class="form-group input-group">
+					<span class="input-group-addon"><i class="uicon-calendar text-primary"></i></span>
+				  {{view Ember.TextField valueBinding="date" classNames="form-control input-lg" placeholder="Date"}}
+				</div>
+				<div class="form-group input-group">
+					<span class="input-group-addon"><i class="uicon-clock text-primary"></i></span>
+				  {{view Ember.TextField valueBinding="time" classNames="form-control input-lg" placeholder="Time"}}
+				</div>
+      </div>
+      <div class="modal-footer">
+          <button {{bind-attr class=":btn :btn-lg :btn-primary :btn-block creating:disabled"}} type="submit" {{action "create"}}>
+          {{#if creating}}
+              Please Wait
+          {{else}}
+              Create Event
+          {{/if}}
+          </button>
+      </div>
+  </form>
+</div>
+<div class="col-md-2 col-sm-2"></div><!-- spacer -->
