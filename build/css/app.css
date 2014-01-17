@@ -22,7 +22,8 @@ body {
 #required-alert-danger,#profile-alert-success, #profile-alert-danger,
 #password-alert-success, #password-alert-danger ,#reset-alert-success, 
 #reset-alert-danger, #signup-alert-success, #signup-alert-danger, 
-#login-alert-danger, #event-alert-success, #event-alert-danger { display: none;}
+#login-alert-danger, #event-alert-success, #event-alert-danger, 
+#snapshot-alert-success, #snapshot-alert-danger  { display: none;}
 
 /* ==========================================================================
    Module Sub Nav Styles
