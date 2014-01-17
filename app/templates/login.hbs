@@ -9,11 +9,11 @@
         {{view App.AlertsView}}
         <div class="form-group">
           <label for="username" class="control-label text-primary">Username</label>
-          {{view Ember.TextField valueBinding="username" classNames="form-control input-lg" placeholder="Username"}}
+          {{input type="text" valueBinding="username" classNames="form-control input-lg" placeholder="Username"}}
         </div>
         <div class="form-group">
           <label for="password" class="control-label text-primary">Password</label>
-          {{view Ember.TextField  type="password" valueBinding="password" classNames="form-control input-lg" placeholder="Password"}}
+          {{input type="text"  type="password" valueBinding="password" classNames="form-control input-lg" placeholder="Password"}}
         </div>
           {{#link-to "forgot" classNames="pull-left"}}Forgot Password?{{/link-to}}
 					<div class="pull-right">
