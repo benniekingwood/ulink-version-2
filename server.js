@@ -5,9 +5,9 @@ var path      = require('path')
 
 // app configuration
 app.configure(function () {
+	app.use(express.logger('dev'));
   app.set('port', process.env.PORT || 8889);
-  app.use("/build", express.static(__dirname + '/build'));
-  app.use(express.logger('dev'));
+  app.use("/", express.static(__dirname + '/build'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -24,8 +24,8 @@ app.configure('production', function(){
 });
 
 // root route
-app.get('/app', function(req, res) {
-  res.redirect('/build/index.html');
+app.get('/', function(req, res) {
+  res.redirect('/coming.html');
 });
 
 console.log('ulink node server running on port ' + app.get('port'));
