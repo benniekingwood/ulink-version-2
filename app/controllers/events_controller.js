@@ -84,6 +84,10 @@ App.EventsController = Ember.ArrayController.extend({
 					$('#event-alert-success').show();
 					$('#event-form').hide();
 					_self.set('creating', false);
+					// scroll the page back to the top
+					window.scrollTo(0, 0);
+					// reload the user's events
+					_self.get('controllers.application').send('getCurrentUserEvents', user);
         },
         error: function(event, error) {
 					console.log("Error: " + error.code + " " + error.message);
@@ -91,6 +95,8 @@ App.EventsController = Ember.ArrayController.extend({
           $('#event-alert-danger').show();
           $('#event-error-message').html(error.message);
           _self.set('creating', false);
+					// scroll the page back to the top
+					window.scrollTo(0, 0);
         }
       });
     }

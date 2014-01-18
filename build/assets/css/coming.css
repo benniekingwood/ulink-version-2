@@ -1,0 +1,7 @@
+		body{background:#378194;text-align:center;margin-bottom:300px}
+		.ulink-logo{width:100%;max-width:500px;margin-top:100px}
+		h1{font-size:2em;font-family:'Lato', sans-serif;color:#fff;margin-bottom:100px}
+		h3{font-size:1.5em;font-family:'Lato', sans-serif;color:#fff;margin-bottom:20px}
+		.form-inline input{box-shadow:none;-webkit-box-shadow:none;border:none}
+		.splash-input.form-control:focus{border-color:#fff;box-shadow:none;-webkit-box-shadow:none}
+		.signup-form{max-width:400px;margin:0 auto}
