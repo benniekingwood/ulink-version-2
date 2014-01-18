@@ -2,6 +2,7 @@ App.Router.map(function () {
   this.route('login');
 	this.route('forgot');
 	this.route('signup');
+	this.route('settings');
   this.resource('ulist');
 	this.resource('me', function() {
 		this.route('profile');

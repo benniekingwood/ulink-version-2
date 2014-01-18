@@ -27,8 +27,8 @@ module.exports = function(grunt) {
     copy: {
       build: {
         files: {
-          'build/css/bootstrap.css': 'dependencies/css/bootstrap/bootstrap.min.css',
-          'build/js/modernizr.js': 'dependencies/js/modernizr/modernizr-1.7.min.js'
+          'build/assets/css/bootstrap.css': 'dependencies/css/bootstrap/bootstrap.min.css',
+          'build/assets/js/modernizr.js': 'dependencies/js/modernizr/modernizr-1.7.min.js'
         }
       }
     },
