@@ -24,7 +24,7 @@ app.configure('production', function(){
 });
 
 // root route
-app.get('/', function(req, res) {
+app.get('/app', function(req, res) {
   res.redirect('/build/index.html');
 });
 

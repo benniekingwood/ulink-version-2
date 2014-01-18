@@ -65,6 +65,10 @@ App.SnapshotsController = Ember.ArrayController.extend({
 					// reset the form values
 					_self.set('caption', null);
 					_self.set('tags', null);
+					// scroll the page back to the top
+					window.scrollTo(0, 0);
+					// reload the user's snapshots
+					_self.get('controllers.application').send('getCurrentUserSnaps', user);
         },
         error: function(snapshot, error) {
 					console.log("Error: " + error.code + " " + error.message);
@@ -72,6 +76,8 @@ App.SnapshotsController = Ember.ArrayController.extend({
           $('#snapshot-alert-danger').show();
           $('#snapshot-error-message').html(error.message);
           _self.set('creating', false);
+					// scroll the page back to the top
+					window.scrollTo(0, 0);
         }
       });
     }
