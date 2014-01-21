@@ -25,7 +25,7 @@ app.configure('production', function(){
 
 // root route
 app.get('/', function(req, res) {
-  res.redirect('/app.html');
+  // res.redirect('/app.html');
 });
 
 console.log('ulink node server running on port ' + app.get('port'));

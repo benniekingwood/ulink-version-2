@@ -54,11 +54,13 @@ App.ProfileController = Ember.ObjectController.extend({
 							$('#'+type+'-alert-success').show();
 							$('#'+type+'-alert-danger').hide();
 							setTimeout(function(){$('#'+type+'-alert-success').hide();},5000);
+							window.scrollTo(0, 0);
 					  },
 					  error: function(myObject, error) {
 							 _self.set('updating', false);
 							console.log(error.message);
 							$('#'+type+'-alert-danger').show();
+							window.scrollTo(0, 0);
 					  }
 					});
 		    },
@@ -66,6 +68,7 @@ App.ProfileController = Ember.ObjectController.extend({
 					 _self.set('updating', false);
 					console.log(error.message);
 					$('#'+type+'-alert-danger').show();
+					window.scrollTo(0, 0);
 		    }
 		  });
 		}

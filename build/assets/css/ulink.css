@@ -173,7 +173,7 @@
 html,
 body {
     -webkit-font-smoothing: antialiased;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "Lato", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     padding-left: 0px;
     padding-right: 0px;
@@ -284,6 +284,12 @@ fieldset[disabled] .btn-primary.active {
     background: #797e7f;
     color: #FFFFFF;
     transition: all 0.35s ease 0s;
+}
+/* ==========================================================================
+   Heading Styles
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Lato", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 /* ==========================================================================
    General Form Styles
