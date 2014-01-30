@@ -108,14 +108,50 @@
                 <a href="app.html#/signup" class="btn btn-primary btn-lg">Sign Up</a>
             </div>
         </div>
-         <div class="row">
+         <div class="row supported-schools-section">
             <h2>Supported Schools</h2>
             <div class="col-md-4 col-sm-4">
+							<ul class="schools-list">
                 {{#each school in schools}}
+								<li><i>{{school.name}}</i></li>
                 {{/each}}
+							</ul>
+							<div><p class="lead"><strong>Don't see your school?</strong> <a href="#" data-toggle="modal" data-target="#suggest-modal">Suggest Here</a></div>
             </div> 
         </div>
     </div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="suggest-modal" tabindex="-1" role="dialog" aria-labelledby="suggest-modal-label" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h3 class="modal-title" id="suggest-modal-label">Suggest Your School</h3>
+		      </div>
+					<form id="suggestion-form" role="form">
+			      <div class="modal-body">
+							{{view App.AlertsView}}
+						   <div id="suggestion-group" class="form-group">
+						     <label for="suggestion" class="control-label text-primary">School</label>
+						     {{input type="text" value=suggestion classNames="form-control input-lg" placeholder="School Name"}}
+						   </div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						  <button {{bindAttr class=":btn :btn-primary submitting:disabled"}} type="submit" {{action "suggest"}}>
+						  {{#if submitting}}
+						    Please Wait
+						  {{else}}
+								Submit Suggestion
+						  {{/if}}
+						  </button>
+			      </div>
+					</form>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
 </section>
 
 <!-- Team Section -->
@@ -126,23 +162,21 @@
                 <h3 class="section-title dark-grey">The Squad</h3>
             </div>
         </div>
-        
         <div class="row">
             <div class="col-md-12 col-sm-12">
-            
                 <ul class="ch-grid">
                     <!--Team Member One-->
                     <li>
                         <div class="ch-item ch-img-1">
                             <div class="ch-info">
                                 <h2>Bennie Kingwood</h2>
-                                <p>Piccolo | Co-Founder <a href="#" target="_blank"><span class="uicon-twitter"></span> @theprobennie</a></p>
+                                <p>Piccolo | Co-Founder <a href="https://twitter.com/TheProBennie" target="_blank"><span class="uicon-twitter"></span> @theprobennie</a></p>
                             </div>
                         </div>
                         
                         <!--Fall Back for Mobile Devices-->
                         <div class="team-info-mobile visible-xs"><h2>Bennie Kingwood</h2>
-                            <p>Piccolo | Co-Founder<br> <a href="#" target="_blank"><i class="uicon-twitter"></i> @theprobennie</a></p>
+                            <p>Piccolo | Co-Founder<br> <a href="https://twitter.com/TheProBennie" target="_blank"><i class="uicon-twitter"></i> @theprobennie</a></p>
                         </div>
                     </li>
                     

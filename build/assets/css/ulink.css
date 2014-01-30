@@ -186,6 +186,18 @@ body {
 	font-size: 30px;
 	padding: 10px;
 }
+.modal-content {background-color: #378194;}
+.modal-footer {margin-top: 0px; background-color:#ffffff;}
+.modal-body {background-color:#ffffff;}
+
+/* ==========================================================================
+   Alert Styles
+   ========================================================================== */
+#required-alert-danger,#profile-alert-success, #profile-alert-danger,
+#password-alert-success, #password-alert-danger ,#reset-alert-success, 
+#reset-alert-danger, #signup-alert-success, #signup-alert-danger, 
+#login-alert-danger, #event-alert-success, #event-alert-danger, 
+#snapshot-alert-success, #snapshot-alert-danger, #suggestion-alert-success, #general-alert-danger  { display: none;}
 
 /* ==========================================================================
    Link Styles
@@ -258,6 +270,47 @@ fieldset[disabled] .btn-primary:active,
 fieldset[disabled] .btn-primary.active {
   background-color: #317485;
   border-color: #317485;
+}
+
+.btn-default {
+    color: #ffffff;
+    background-color: #c1c6c7;
+    border-color: #c1c6c7;
+}
+
+.btn-default:hover {
+    color: #ffffff;
+    background-color: #adb2b3;
+    border-color: #adb2b3;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  color: #ffffff;
+  background-color: #adb2b3;
+  border-color: #adb2b3;
+}
+
+.btn-default.disabled,
+.btn-default[disabled],
+fieldset[disabled] .btn-default,
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled:active,
+.btn-default[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-default.disabled.active,
+.btn-default[disabled].active,
+fieldset[disabled] .btn-default.active {
+  background-color: #adb2b3;
+  border-color: #adb2b3;
 }
 
 .btn-grey {

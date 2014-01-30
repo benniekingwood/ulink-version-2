@@ -1,6 +1,5 @@
-<div class="col-md-2 col-sm-2"></div><!-- spacer -->
-<div class="col-md-8 col-sm-8">
-    <h4 class="text-primary">Create Your Account</h4>
+<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+    <h3 class="text-primary">Create Your Account</h3>
 		{{view App.AlertsView}}
 		<form name="signup-form" id="signup-form" role="form">
       <div id="username-group" class="form-group">
@@ -30,7 +29,7 @@
 														selection=selectedStatus }}
 	    </div>
 			<div class="alert alert-info">
-          <i class="uicon-info"></i> By Pressing the "Sign up" button you agree to the terms and conditions listed in the <a href="#"><strong>Terms</strong></a> section of this website.
+          <i class="uicon-info"></i> By Pressing the "Sign up" button you agree to the terms and conditions listed in the {{#link-to "terms"}}<strong>Terms</strong>{{/link-to}} section of this website.
       </div>
       <div>
           <button {{bindAttr class=":btn :btn-lg :btn-primary :btn-block signingUp:disabled"}} type="submit" {{action "signup"}}>
@@ -43,4 +42,3 @@
       </div>
   	</form>
 </div>
-<div class="col-md-2 col-sm-2"></div><!-- spacer -->

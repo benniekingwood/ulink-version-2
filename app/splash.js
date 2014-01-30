@@ -99,6 +99,15 @@ require('app/models/snapshot');
 require('app/models/user');
 
 /*
+ * Views layer.
+ * You'll notice that there are only a few views.
+ * Ember accomplishes a lot in its templates and 
+ * Views are only necessary if you have view-specific
+ * programming to do. 
+*/
+require('app/views/alerts_view');
+
+/*
  * Controller layer.
  * Controllers wrap objects and provide a place
  * to implement properties for display
@@ -106,6 +115,7 @@ require('app/models/user');
  * controllers wrapped objects.
 */
 require('app/controllers/app_controller');
+require('app/controllers/splash_controller');
 
 /* 
  * States (i.e. Routes)

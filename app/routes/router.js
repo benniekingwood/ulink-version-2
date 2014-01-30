@@ -28,13 +28,12 @@ App.Router.map(function () {
   });
 });
 
-// Index Route
-App.IndexRoute = Ember.Route.extend({
-  redirect: function() {
-    this.transitionTo('events');
-    $(document).ready(function(){
-        $("#events-link").addClass("active");
-    });
+// Splash Route
+App.SplashRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (this.controllerFor('application').get('isLoggedIn')) {
+      window.location = "/app.html#/events";
+    } 
   }
 });
 

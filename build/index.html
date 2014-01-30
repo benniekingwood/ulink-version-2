@@ -112,14 +112,16 @@
 			});
 
 			$(document).ready(function() {
-			    $.backstretch([
+				var heros = ["assets/images/hero-bg-2.jpg",
 			            "assets/images/hero-bg-3.jpg",
-			            "assets/images/hero-bg-2.jpg",
-			            "assets/images/hero-bg-1.jpg"
-			        ], {
-			        fade: 1000,
-			        duration: 20000
-			    });
+			            "assets/images/hero-bg-1.jpg", 
+			            "assets/images/hero-bg-4.jpg",
+			            "assets/images/hero-bg-5.jpg"
+									];			
+		    $.backstretch(heros, {
+		        fade: 1000,
+		        duration: 20000
+		    });
 			});
 		</script>
     <!-- Quantcast Tag -->
