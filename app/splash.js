@@ -1,5 +1,5 @@
 /*
- * This is the uLink Ember application. It's built using a 
+ * This is the uLink Splash Ember application. It's built using a 
  * neuter task.
  *
  * `require`s in this file will be stripped and replaced with
@@ -72,8 +72,9 @@ window.App = Ember.Application.create({
 	LOG_TRANSITIONS: true,  
 	LOG_TRANSITIONS_INTERNAL: true,
   year: new Date().getFullYear(), 
-  rootElement: '#ulink-app', 
-	env: "PRODUCTION"
+  rootElement: '#ulink-splash-app', 
+	env: "PRODUCTION", 
+	isSplashApp: true
 });
 
 /* 
@@ -104,8 +105,6 @@ require('app/models/user');
  * Views are only necessary if you have view-specific
  * programming to do. 
 */
-require('app/views/snapshot_thumbnail_view');
-require('app/views/event_list_item_view');
 require('app/views/alerts_view');
 
 /*
@@ -116,13 +115,7 @@ require('app/views/alerts_view');
  * controllers wrapped objects.
 */
 require('app/controllers/app_controller');
-require('app/controllers/events_controller');
-require('app/controllers/login_controller');
-require('app/controllers/forgot_controller');
-require('app/controllers/signup_controller');
-require('app/controllers/snapshots_controller');
-require('app/controllers/user_controller');
-require('app/controllers/profile_controller');
+require('app/controllers/splash_controller');
 
 /* 
  * States (i.e. Routes)
@@ -131,3 +124,13 @@ require('app/controllers/profile_controller');
  * actions.
 */
 require('app/routes/router');
+
+/* 
+ * Since we have anchor links that we use to navigate 
+ * within the splash page, we need to turn off #routeName 
+ * routing so that clicking anchors doesn't cause the app
+ * to think we are trying to tranistion to a route.
+*/
+App.Router.reopen({
+  location: 'history'
+});

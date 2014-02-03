@@ -1,4 +1,4 @@
- <div class="navbar navbar-inverse navbar-fixed-top navbar-ulink"  role="navigation">
+ <div {{bind-attr class="App.isSplashApp:hidden :navbar :navbar-inverse :navbar-fixed-top :navbar-ulink"}} role="navigation">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -40,7 +40,7 @@
         </ul>
     </div>
 </div>
-<div class="container content-container">
+<div {{bind-attr class="App.isSplashApp::container :content-container"}}>
     {{outlet subnav}}
     {{outlet}}
 </div>

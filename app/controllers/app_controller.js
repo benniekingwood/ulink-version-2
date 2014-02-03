@@ -10,7 +10,7 @@ App.ApplicationController = Ember.Controller.extend({
     if(hasCurrrentUser) { 
     	this.send('setCurrentUser', Parse.User.current());
     }
-		// retreive any necessary init data
+		// load the schools 
 		this.send("getSchools");
   },
 	actions: {

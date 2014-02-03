@@ -1,4 +1,8 @@
 /* ==========================================================================
+   Style Imports
+   ========================================================================== */
+@import url('ulink.css');
+/* ==========================================================================
    General Styles
    ========================================================================== */
 .uicon-jumbo {
@@ -142,6 +146,13 @@ ul.social-share-list li {
     font-weight: 300;
     font-size: 55px;
     line-height: 53px;
+}
+
+ul.schools-list {
+	list-style: none;
+}
+.supported-schools-section { 
+	color: #ffffff;
 }
 
 /* ==========================================================================
@@ -332,9 +343,7 @@ footer a:hover {
 	height: 100%;
 	border-radius: 50%;
 	position: relative;
-	cursor: default;
-	box-shadow:inset 0 0 0 16px rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.1);
-		
+	cursor: default;		
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
@@ -343,15 +352,15 @@ footer a:hover {
 }
 
 .ch-img-1 { 
-	background-image: url(http://www.theulink.com/img/bennie.png);
+	background-image: url(http://s3.amazonaws.com/ulink_images/img/team/bennie.jpg);
 }
 
 .ch-img-2 { 
-	background-image: url(http://www.theulink.com/img/alfred.png);
+	background-image: url(http://s3.amazonaws.com/ulink_images/img/team/alfred.jpg);
 }
 
 .ch-img-3 { 
-	background-image: url(http://www.theulink.com/img/bennie.png);
+	background-image: url(http://s3.amazonaws.com/ulink_images/img/team/chris.jpg);
 }
 
 

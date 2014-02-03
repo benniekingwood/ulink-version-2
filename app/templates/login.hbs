@@ -1,35 +1,28 @@
-<div class="col-md-2 col-sm-2"></div><!-- spacer -->
-<div class="col-md-8 col-sm-8">
-  <div class="modal-header">
-    <h4 class="modal-title text-primary">Please Sign In</h4>
-  </div>
+<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+  <h3 class="text-primary">Please Sign In</h3>
+	{{view App.AlertsView}}
   <form name="login-form" id="login-form">
-      <input name="rememberMe" type="hidden" value="false" /> 
-      <div class="modal-body">
-        {{view App.AlertsView}}
-        <div class="form-group">
-          <label for="username" class="control-label text-primary">Username</label>
-          {{input type="text" valueBinding="username" classNames="form-control input-lg" placeholder="Username"}}
-        </div>
-        <div class="form-group">
-          <label for="password" class="control-label text-primary">Password</label>
-          {{input type="text"  type="password" valueBinding="password" classNames="form-control input-lg" placeholder="Password"}}
-        </div>
-          {{#link-to "forgot" classNames="pull-left"}}Forgot Password?{{/link-to}}
-					<div class="pull-right">
-						Not a member? 
-						{{#link-to "signup"}}<strong>Sign up now <i class="uicon-arrows-right"></i></strong>{{/link-to}}
-					</div>
-      </div>
-      <div class="modal-footer">
-          <button {{bindAttr class=":btn :btn-lg :btn-primary :btn-block loggingIn:disabled"}} type="submit" {{action "login"}}>
-          {{#if loggingIn}}
-              Please Wait
-          {{else}}
-              Log in
-          {{/if}}
-          </button>
-      </div>
+    <input name="rememberMe" type="hidden" value="false" /> 
+    <div class="form-group">
+      <label for="username" class="control-label text-primary">Username</label>
+      {{input type="text" valueBinding="username" classNames="form-control input-lg" placeholder="Username"}}
+    </div>
+    <div class="form-group">
+      <label for="password" class="control-label text-primary">Password</label>
+      {{input type="text"  type="password" valueBinding="password" classNames="form-control input-lg" placeholder="Password"}}
+    </div>
+    {{#link-to "forgot" classNames="pull-left"}}Forgot Password?{{/link-to}}
+		<div class="pull-right">
+			Not a member? 
+			{{#link-to "signup"}}<strong>Sign up now <i class="uicon-arrows-right"></i></strong>{{/link-to}}
+		</div>
+		<br /><br />
+    <button {{bindAttr class=":btn :btn-lg :btn-primary :btn-block loggingIn:disabled"}} type="submit" {{action "login"}}>
+    {{#if loggingIn}}
+        Please Wait
+    {{else}}
+        Log in
+    {{/if}}
+    </button>
   </form>
 </div>
-<div class="col-md-2 col-sm-2"></div><!-- spacer -->

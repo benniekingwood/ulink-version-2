@@ -68,7 +68,8 @@ module.exports = function(grunt) {
       options: {
         includeSourceURL: true
       },
-      'build/application.js': 'app/app.js'
+      'build/application.js': 'app/app.js',
+			'build/splash-application.js': 'app/splash.js'
     },
 
     /*

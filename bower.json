@@ -14,35 +14,56 @@
     "bower_components",
     "test",
     "tests"
-  ], 
-  "directory": "dependencies", 
+  ],
+  "directory": "dependencies",
   "dependencies": {
-    "jquery": "~2.0.0", 
+    "jquery": "2.0.3",
     "ember": "1.3.0",
-		"handlebars": "1.3.0",
-    "bootstrap": "~3.0.2", 
-    "modernizr": "~2.7.1", 
-    "bowser": "latest"
+    "handlebars": "1.3.0",
+    "bootstrap": "~3.0.2",
+    "modernizr": "~2.7.1",
+    "bowser": "latest",
+    "jquery-backstretch": "2.0.4"
   },
-	"exportsOverride": {
-		"bootstrap": {
-			"js" : ["dist/js/*.min.js"], 
-			"css": ["dist/css/bootstrap.min.css"]
-		},
-		"handlebars": {
-			"js" : ["handlebars.runtime.min.js"]
-		},
-		"ember": {
-			"js" : ["ember.prod.js"]
-		},
-		"jquery": {
-			"js" : ["jquery.min.js"]
-		},
-		"modernizr": {
-			"js" : ["modernizr-1.7.min.js"]
-		},
-		"*": {                  
+  "exportsOverride": {
+    "bootstrap": {
+      "js": [
+        "dist/js/*.min.js"
+      ],
+      "css": [
+        "dist/css/bootstrap.min.css"
+      ]
+    },
+    "handlebars": {
+      "js": [
+        "handlebars.runtime.min.js"
+      ]
+    },
+    "ember": {
+      "js": [
+        "ember.prod.js"
+      ]
+    },
+    "jquery": {
+      "js": [
+        "jquery.min.js"
+      ]
+    },
+    "modernizr": {
+      "js": [
+        "modernizr-1.7.min.js"
+      ]
+    },
+    "jquery-backstretch": {
+      "js": [
+        "jquery.backstretch.min.js"
+      ]
+    },
+    "*": {
       "js": "**/*.min.js"
     }
-	}
+  },
+  "resolutions": {
+    "jquery": "2.0.3"
+  }
 }

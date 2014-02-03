@@ -32,7 +32,7 @@ App.LoginController = Ember.Controller.extend({
             previousTransition.retry();
           } else {
             // Default back to homepage
-            _self.transitionToRoute('index');
+            _self.transitionToRoute('events');
           }
         },
         error: function(user, error) {

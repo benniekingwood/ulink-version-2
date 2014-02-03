@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization" lang="en">
+<head>
+	<meta charset="utf-8">
+    <!-- Title - keep less than 70 chars for better Google placement -->
+    <title>uLink | Your college everything</title>
+    <!-- Standard Meta Tags -->
+    <meta name="keywords" content="college classifieds, classifieds, campus events, school, university">
+    <meta name="description" content="Find out what is happening on your campus, right now.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Bennie Kingwood">
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="uLink | Your college everything">
+    <meta itemprop="description" content="Find out what is happening on your campus, right now.">
+    <meta itemprop="image" content="http://www.theulink.com/assets/images/logouLinkv2_dark_bcard.png">
+
+    <!-- Facebook Open Graph Meta Tags -->
+    <meta property="og:title" content="uLink | Your college everything">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.theulink.com">
+    <meta property="og:site_name" content="uLink">
+    <meta property="og:description" content="Find out what is happening on your campus, right now.">
+    <meta property="og:image" content="http://www.theulink.com/assets/images/logouLinkv2_dark_bcard.png"/>
+    <meta property="fb:app_id" content="">
+
+    <!-- Twitter Meta Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ulinkinc">
+    <meta name="twitter:title" content="uLink | Your college everything">
+    <meta name="twitter:description" content="Find out what is happening on your campus, right now.">
+    <meta name="twitter:creator" content="@theprobennie">
+    <meta name="twitter:image" content="http://www.theulink.com/assets/images/logouLinkv2_dark_bcard.png">
+
+    <!-- CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/splash.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="assets/js/modernizr.js"></script>
+
+    <!-- CSS Fav and touch icons --> 
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/Icon-72@2x.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/Icon@2x.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="#">
+    <link rel="apple-touch-icon-precomposed" href="#">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="icon" href="assets/images/favicon.ico">
+</head>
+<body data-spy="scroll" data-target=".navbar">
+    <!-- Facebook Javascript SDK -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <div id="ulink-splash-app"></div>
+    <!-- Javascript -->
+    <!-- ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster --> 
+    <script type="text/javascript" src="splash-application.js"></script>
+    <script type="text/javascript">
+			//Height Define
+			$(document).ready(function(){
+				var a = $(window).height();
+				$("#home").height(a - 0)
+			});
+
+			//Scroll To
+			$(".scroll").click(function(event){
+				event.preventDefault();
+				$("html,body").animate({scrollTop:$(this.hash).offset().top}, 400)
+			});
+
+			//Scroll Spy Refresh
+			$('#navbar').scrollspy()
+
+			//Scroll To Top
+			$(document).ready(function(){
+				//Check to see if the window is top if not then display button
+				$(window).scroll(function(){
+					if ($(this).scrollTop() > 160) {
+						$('.scrollToTop').fadeIn();
+					} else {
+						$('.scrollToTop').fadeOut();
+					}
+				});
+				//Click event to scroll to top
+				$('.scrollToTop').click(function(){
+					$('html, body').animate({scrollTop : 0},800);
+					return false;
+				});
+			});
+
+			//Onload FadeIn
+			$(document).ready(function(){
+				$(".fadeOnLoad").delay(1000).fadeIn(700);
+			});
+
+			//Div FadeOut On Scroll
+			$(window).scroll(function() {
+			    if ($(this).scrollTop() < 150) {
+			        $(".hero-text:hidden").fadeIn(400);
+			    }
+			    else {
+			        $(".hero-text:visible").fadeOut(400);
+			    }
+			});
+
+			$(document).ready(function() {
+				var heros = ["assets/images/hero-bg-2.jpg",
+			            "assets/images/hero-bg-3.jpg",
+			            "assets/images/hero-bg-1.jpg", 
+			            "assets/images/hero-bg-4.jpg",
+			            "assets/images/hero-bg-5.jpg"
+									];			
+		    $.backstretch(heros, {
+		        fade: 1000,
+		        duration: 20000
+		    });
+			});
+		</script>
+    <!-- Quantcast Tag -->
+    <script type="text/javascript">
+        var _qevents = _qevents || []; (function() {var elem = document.createElement('script'); elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js"; elem.async = true; elem.type = "text/javascript"; var scpt = document.getElementsByTagName('script')[0]; scpt.parentNode.insertBefore(elem, scpt); })(); _qevents.push({qacct:"p-8Kz1_e3f51S6g"}); 
+    </script>
+    <noscript>
+        <div style="display:none;">
+            <img src="//pixel.quantserve.com/pixel/p-8Kz1_e3f51S6g.gif" border="0" height="1" width="1" alt="Quantcast"/>
+        </div> 
+    </noscript>
+    <!-- End Quantcast tag -->
+</body>
+</html>

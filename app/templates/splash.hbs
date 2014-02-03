@@ -1,0 +1,270 @@
+<div class="navbar navbar-inverse navbar-fixed-top navbar-ulink animate navbar-splash-app"  role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><img src="assets/images/logouLinkv2.png"/></a>
+    </div>
+
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="scroll" href="#home">Home</a></li>
+            <li><a class="scroll" href="#features">Features</a></li>
+            <li><a class="scroll" href="#get-started">Get Started</a></li>
+            <li><a class="scroll" href="#team">Team</a></li>
+            <li><a class="scroll" href="#contact">Contact</a></li>
+            <li>
+                <a class="login" href="app.html#/login">
+                    <span class="uicon-login"></span>Login
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Home Section -->
+<section id="home">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center hero-text">
+                <h1>uLink.</h1>
+                <p class="lead">Find out what is happening on your campus, right now.</p>
+                <a class="btn btn-lg btn-grey scroll" href="#ulist"><span class="uicon-caret-down"></span> VIEW OUR FEATURES</a>
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Features Section -->
+<section id="features">
+    <!-- uList Section -->
+    <section id="ulist">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 featured-section-title">
+                    <h3 class="section-title">uList</h3>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <h2 class="text-center">
+                        <span class="uicon-ulist uicon-jumbo"></span>
+                    </h2>
+                    <p class="lead">uLink provides an easy and intuitive way for you to buy and sell items to your fellow classmates.</p>
+                    <!-- <a class="btn btn-primary btn-lg" href="#">Learn More <span class="uicon-arrows-right"></span> </a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Events Section -->
+    <section id="events">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 featured-section-title">
+                    <h3 class="section-title">Campus Events</h3>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <h2 class="text-center">
+                        <span class="uicon-calendar uicon-jumbo"></span>
+                    </h2>
+                    <p class="lead">Stay current with what events are happening on and off your campus. </p>
+                    <!-- <a class="btn btn-primary btn-lg" href="#">Learn More <span class="uicon-arrows-right"></span> </a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Snapshots Section -->
+    <section id="snapshots">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 featured-section-title">
+                    <h3 class="section-title">Snapshots</h3>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <h2 class="text-center">
+                        <span class="uicon-camera uicon-jumbo"></span>
+                    </h2>
+                    <p class="lead">Capture every moment of your college experience, and share them with your school.</p>
+                    <!-- <a class="btn btn-primary btn-lg" href="#">Learn More <span class="uicon-arrows-right"></span> </a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<!-- Suggest School Section -->
+<section id="get-started">
+    <div class="container">
+        <div class="row get-started">
+            <div class="col-md-8 col-sm-8">
+                <h4>Ready To Get Started With uLink?</h4>
+            </div>
+            <div class="col-md-4 col-sm-4 text-center"><br><br>
+                <a href="app.html#/signup" class="btn btn-primary btn-lg">Sign Up</a>
+            </div>
+        </div>
+         <div class="row supported-schools-section">
+            <h2>Supported Schools</h2>
+            <div class="col-md-4 col-sm-4">
+							<ul class="schools-list">
+                {{#each school in schools}}
+								<li><i>{{school.name}}</i></li>
+                {{/each}}
+							</ul>
+							<div><p class="lead"><strong>Don't see your school?</strong> <a href="#" data-toggle="modal" data-target="#suggest-modal">Suggest Here</a></div>
+            </div> 
+        </div>
+    </div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="suggest-modal" tabindex="-1" role="dialog" aria-labelledby="suggest-modal-label" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h3 class="modal-title" id="suggest-modal-label">Suggest Your School</h3>
+		      </div>
+					<form id="suggestion-form" role="form">
+			      <div class="modal-body">
+							{{view App.AlertsView}}
+						   <div id="suggestion-group" class="form-group">
+						     <label for="suggestion" class="control-label text-primary">School</label>
+						     {{input type="text" value=suggestion classNames="form-control input-lg" placeholder="School Name"}}
+						   </div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						  <button {{bindAttr class=":btn :btn-primary submitting:disabled"}} type="submit" {{action "suggest"}}>
+						  {{#if submitting}}
+						    Please Wait
+						  {{else}}
+								Submit Suggestion
+						  {{/if}}
+						  </button>
+			      </div>
+					</form>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+</section>
+
+<!-- Team Section -->
+<section id="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-left">
+                <h3 class="section-title dark-grey">The Team</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <ul class="ch-grid">
+                    <!--Team Member One-->
+                    <li>
+                        <div class="ch-item ch-img-1">
+                            <div class="ch-info">
+                                <h2>Bennie Kingwood</h2>
+                                <p>Piccolo | Co-Founder <a href="https://twitter.com/TheProBennie" target="_blank"><span class="uicon-twitter"></span> @theprobennie</a></p>
+                            </div>
+                        </div>
+                        
+                        <!--Fall Back for Mobile Devices-->
+                        <div class="team-info-mobile visible-xs"><h2>Bennie Kingwood</h2>
+                            <p>Piccolo | Co-Founder<br> <a href="https://twitter.com/TheProBennie" target="_blank"><i class="uicon-twitter"></i> @theprobennie</a></p>
+                        </div>
+                    </li>
+                    
+                    
+                    <!--Team Member Two-->
+                    <li>
+                        <div class="ch-item ch-img-2">
+                            <div class="ch-info">
+                                <h2>Alfred Macaraeg</h2>
+                                <p>Kuya | Co-Founder <a href="https://twitter.com/l33tMaC" target="_blank"><i class="uicon-twitter"></i> @l33tMaC</a></p>
+                            </div>
+                        </div>
+                        
+                        <!--Fall Back for Mobile Devices-->
+                        <div class="team-info-mobile visible-xs"><h2>Alfred Macaraeg</h2>
+                            <p>>Kuya | Co-Founder <br> <a href="https://twitter.com/l33tMaC" target="_blank"><i class="uicon-twitter"></i> @l33tMaC</a></p>
+                        </div>
+                    </li>
+                    
+                    
+                    <!--Team Member Three-->
+                    <li>
+                        <div class="ch-item ch-img-3">
+                            <div class="ch-info">
+                                <h2>Chris Cerwinski</h2>
+                                <p>MeanMachine | Developer <a href="https://twitter.com/icerwinski" target="_blank"><i class="uicon-twitter"></i> @icerwinski</a></p>
+                            </div>
+                        </div>
+                        
+                        <!--Fall Back for Mobile Devices-->
+                        <div class="team-info-mobile visible-xs"><h2>Chris Cerwinski</h2>
+                                <p>MeanMachine | Developer <a href="https://twitter.com/icerwinski" target="_blank"><i class="uicon-twitter"></i> @icerwinski</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-left">
+                <h3 class="section-title">Contact Us</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Contact Info -->
+            <div class="col-md-4 col-sm-4 text-left">
+                <h5>Where We are</h5>
+                <address>
+                    <p>uLink, Inc.<br />
+                        832 Garrow Road<br />
+                        Newport News, VA 23608<br >
+                    </p>
+                    <a class="btn btn-primary btn-lg" href="mailto:help@ulink.io"><span class="uicon-envelope"></span> Contact Us</a>
+                </address>
+            </div>
+            <div class="col-md-4 col-sm-4 text-left">
+                <h5>Find Us On</h5>
+                <ul class="socialize">
+                    <li><a href="http://www.twitter.com/ulinkinc"><span class="uicon-twitter"></span></a></li>
+                    <li><a href="http://www.facebook.com/ulinkinc"><span class="uicon-facebook"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Scroll to top link -->
+<a href="#" class="scrollToTop hidden-phone" style="display: none;"><span class="uicon-caret-up"></span></a>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 text-left">
+                <p class="text-muted">
+                    <span class="text-primary copy-section">&copy; {{App.year}} uLink, Inc. All Rights Reserved.</span> <span class="uicon-keyboard"></span> in LA
+                </p>
+            </div>
+
+            <div class="col-md-8 col-sm-8 text-right">
+                <ul class="footer-links">
+                    <li><a href="/app.html#terms">Terms & Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

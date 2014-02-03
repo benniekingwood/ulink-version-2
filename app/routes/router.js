@@ -1,8 +1,11 @@
 App.Router.map(function () {
+  this.route('splash', {path: '/'});
+  this.route('terms');
   this.route('login');
 	this.route('forgot');
 	this.route('signup');
 	this.route('settings');
+	
   this.resource('ulist');
 	this.resource('me', function() {
 		this.route('profile');
@@ -17,7 +20,7 @@ App.Router.map(function () {
   });
   this.resource('events', function() {
 		this.route('new');
-    this.route('event', {path: ':event_id'});
+    this.route('edit', {path: ':event_id'});
   });
   this.resource('snapshots', function() {
 		this.route('new');
@@ -25,13 +28,12 @@ App.Router.map(function () {
   });
 });
 
-// Index Route
-App.IndexRoute = Ember.Route.extend({
-  redirect: function() {
-    this.transitionTo('events');
-    $(document).ready(function(){
-        $("#events-link").addClass("active");
-    });
+// Splash Route
+App.SplashRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (this.controllerFor('application').get('isLoggedIn')) {
+      window.location = "/app.html#/events";
+    } 
   }
 });
 
