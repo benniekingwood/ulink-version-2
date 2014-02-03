@@ -110,6 +110,11 @@ li#events-sidenav-link  span, li#snaps-sidenav-link  span {
 	font-size: 26px;
 }
 
+.event-container:hover div .event-list-item {
+	background-color: rgba(0,0,0,0.1);
+	cursor: pointer;
+}
+
 /* ==========================================================================
    Events Styles
    ========================================================================== */

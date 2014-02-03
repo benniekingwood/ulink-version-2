@@ -1,5 +1,9 @@
 {{#each events}}
-<div class="">
-	{{view App.EventListItemView contentBinding="this"}}
-</div>
+
+	{{#link-to 'events.edit' this}}
+		<div class="event-container">
+			{{view App.EventListItemView contentBinding="this"}}
+		</div>
+	{{/link-to}}
+
 {{/each}}

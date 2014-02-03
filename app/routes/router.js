@@ -20,7 +20,7 @@ App.Router.map(function () {
   });
   this.resource('events', function() {
 		this.route('new');
-    this.route('event', {path: ':event_id'});
+    this.route('edit', {path: ':event_id'});
   });
   this.resource('snapshots', function() {
 		this.route('new');
