@@ -3,26 +3,24 @@
     <h4 class="text-primary">Submit Snapshot</h4>
     {{view App.AlertsView}}  
 		<form name="snapshot-form" id="snapshot-form">
-      <div class="modal-body">
-        <div id="caption-group" class="form-group">
-          <label for="caption" class="control-label text-primary">Caption</label>
-					{{textarea value=caption cols="80" rows="4" classNames="form-control input-lg" maxlength="150"}}
-					<p class="help-block">Describe your snapshot in <b>150</b> characters or less.</p>
-        </div>
-				<div class="form-group">
-					<label for="tags" class="control-label text-primary">Tags</label>
-				  {{input type="text"  valueBinding="tags" classNames="form-control input-lg" placeholder="#Tags" maxlength="150"}}
-				</div>
+      <div id="caption-group" class="form-group">
+        <label for="caption" class="control-label text-primary">Caption</label>
+				{{textarea value=caption cols="80" rows="4" classNames="form-control input-lg" maxlength="150"}}
+				<p class="help-block">Describe your snapshot in <b>150</b> characters or less.</p>
       </div>
-      <div class="modal-footer">
-          <button {{bind-attr class=":btn :btn-lg :btn-primary :btn-block creating:disabled"}} type="submit" {{action "create"}}>
-          {{#if creating}}
-              Please Wait
-          {{else}}
-              Submit Snapshot
-          {{/if}}
-          </button>
-      </div>
+			<div class="form-group">
+				<label for="tags" class="control-label text-primary">Tags</label>
+			  {{input type="text"  valueBinding="tags" classNames="form-control input-lg" placeholder="#Tags" maxlength="150"}}
+			</div>
+			<div>
+        <button {{bind-attr class=":btn :btn-lg :btn-primary :btn-block creating:disabled"}} type="submit" {{action "create"}}>
+        {{#if creating}}
+            Please Wait
+        {{else}}
+            Submit Snapshot
+        {{/if}}
+        </button>
+    </div>
   </form>
 </div>
 <div class="col-md-2 col-sm-2"></div><!-- spacer -->

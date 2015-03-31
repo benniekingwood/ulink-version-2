@@ -8,6 +8,9 @@ App.ProfileController = Ember.ObjectController.extend({
 		hideRequiredAlert: function() {
 			$('#required-alert-danger').hide();
 		},
+    editEvent: function(event) {
+		  this.transitionTo("events.edit", event);
+    },
 		update: function(type) {
 			if("password" == type) {
 				if(this.get("password") === undefined || "" == this.get("password").trim()) {

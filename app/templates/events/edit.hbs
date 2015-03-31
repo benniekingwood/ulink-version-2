@@ -1,1 +1,37 @@
-EDIT EVENT
+<div class="pull-left">{{#link-to 'me.events'}}< Back{{/link-to}}</div>
+<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
+    <h4 class="text-primary">Edit Event</h4>
+    {{view App.AlertsView}}  
+		<form name="event-form" id="event-form">
+        <div id="title-group" class="form-group">
+          <label for="title" class="control-label text-primary">Title</label>
+          {{input type="text" value=title classNames="form-control input-lg" placeholder="Title"}}
+        </div>
+			  <div id="description-group" class="form-group">
+			    <label for="description" class="control-label text-primary">Description</label>
+			    {{textarea value=description cols="80" rows="10" classNames="form-control input-lg" maxlength="750"}}
+					<p class="help-block">Describe your event in <b>750</b> characters or less.</p>
+			  </div>
+				<div class="form-group input-group">
+					<span class="input-group-addon"><i class="uicon-location text-primary"></i></span>
+				  {{input type="text" value=location classNames="form-control input-lg" placeholder="Location"}}
+				</div>
+				<div class="form-group input-group">
+					<span class="input-group-addon"><i class="uicon-calendar text-primary"></i></span>
+				  {{input type="text" value=date classNames="form-control input-lg" placeholder="Date"}}
+				</div>
+				<div class="form-group input-group">
+					<span class="input-group-addon"><i class="uicon-clock text-primary"></i></span>
+				  {{input type="text" value=time classNames="form-control input-lg" placeholder="Time"}}
+				</div>
+			 <div>
+          <button {{bind-attr class=":btn :btn-lg :btn-primary :btn-block updating:disabled"}} type="submit" {{action "updateEvent" this}}>
+          {{#if updating}}
+              Please Wait
+          {{else}}
+              Update Event
+          {{/if}}
+          </button>
+      </div>
+  </form>
+</div>
